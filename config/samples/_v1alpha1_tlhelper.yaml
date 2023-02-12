@@ -1,0 +1,22 @@
+apiVersion: telco.labs/v1alpha1
+kind: Tlhelper
+metadata:
+  labels:
+    app.kubernetes.io/name: tlhelper
+    app.kubernetes.io/instance: tlhelper-sample
+    app.kubernetes.io/part-of: operator
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: operator
+  name: tlhelper-sample
+spec:
+  replicas: 2
+  remote: true
+  image:
+    repository: registry.mgmt.vmw-nfv.rocks/5glab/tlhelper
+    tag: latest
+    pullPolicy: Always
+  serviceType: ClusterIP
+  logLevel: info
+  format: text
+  configMapData:
+    postgresHost: tlhelper-postgres-postgresql-primary
