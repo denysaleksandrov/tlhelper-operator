@@ -11,21 +11,21 @@ metadata:
     app.kubernetes.io/managed-by: kustomize
   name: tlhelper-editor-role
 rules:
-- apiGroups:
-  - my.domain
-  resources:
-  - tlhelpers
-  verbs:
-  - create
-  - delete
-  - get
-  - list
-  - patch
-  - update
-  - watch
-- apiGroups:
-  - my.domain
-  resources:
-  - tlhelpers/status
-  verbs:
-  - get
+  - apiGroups:
+      - telco.labs
+    resources:
+      - tlhelpers
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - telco.labs
+    resources:
+      - tlhelpers/status
+    verbs:
+      - get

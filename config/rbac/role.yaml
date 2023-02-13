@@ -5,29 +5,59 @@ metadata:
   creationTimestamp: null
   name: manager-role
 rules:
-- apiGroups:
-  - my.domain
-  resources:
-  - tlhelpers
-  verbs:
-  - create
-  - delete
-  - get
-  - list
-  - patch
-  - update
-  - watch
-- apiGroups:
-  - my.domain
-  resources:
-  - tlhelpers/finalizers
-  verbs:
-  - update
-- apiGroups:
-  - my.domain
-  resources:
-  - tlhelpers/status
-  verbs:
-  - get
-  - patch
-  - update
+  - apiGroups:
+      - telco.labs
+    resources:
+      - tlhelpers
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - telco.labs
+    resources:
+      - tlhelpers/finalizers
+    verbs:
+      - update
+  - apiGroups:
+      - telco.labs
+    resources:
+      - tlhelpers/status
+    verbs:
+      - get
+      - patch
+      - update
+  - apiGroups:
+      - ""
+    resources:
+      - configmaps
+      - endpoints
+      - events
+      - pods
+      - services
+      - services/finalizers
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - apps
+    resources:
+      - deployments
+      - replicasets
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch

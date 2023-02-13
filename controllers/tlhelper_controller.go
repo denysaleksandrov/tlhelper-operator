@@ -40,9 +40,12 @@ type TlhelperReconciler struct {
 	Scheme *runtime.Scheme
 }
 
-//+kubebuilder:rbac:groups=my.domain,resources=tlhelpers,verbs=get;list;watch;create;update;patch;delete
-//+kubebuilder:rbac:groups=my.domain,resources=tlhelpers/status,verbs=get;update;patch
-//+kubebuilder:rbac:groups=my.domain,resources=tlhelpers/finalizers,verbs=update
+//+kubebuilder:rbac:groups=telco.labs,resources=tlhelpers,verbs=get;list;watch;create;update;patch;delete
+//+kubebuilder:rbac:groups=telco.labs,resources=tlhelpers/status,verbs=get;update;patch
+//+kubebuilder:rbac:groups=telco.labs,resources=tlhelpers/finalizers,verbs=update
+
+//+kubebuilder:rbac:groups=apps,resources=deployments;replicasets;,verbs=get;list;watch;create;update;patch;delete
+//+kubebuilder:rbac:groups="",resources=pods;services;services/finalizers;endpoints;events;configmaps,verbs=create;update;get;list;watch;patch;delete
 
 // Reconcile is part of the main kubernetes reconciliation loop which aims to
 // move the current state of the cluster closer to the desired state.
